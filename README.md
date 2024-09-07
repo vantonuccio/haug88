@@ -5,6 +5,8 @@ Python version >= 3.6 required.
 
 The "Asympototic expansion" pdf file describes with some detail both the asymptotic expansion and the numerical integration scheme adopted to evaluate the coros section ad the energy loss rate.
 
+REQUIREMENTS
+Libraries: numpy, scipy.
 We make use of the mpmath library for arbitrary precision mathematics, more specifically to compute Haug 1988 exact quadrature formulas for both quantities (see: https://mpmath.org/). 
 
 List of functions:
