@@ -1,7 +1,7 @@
 """ Numerical evaluation of integral in the effective cross section (Haug, AA 191, 181 (1989), eq. (27)) or of the energy loss normalized to density (Haug, eq. 15).  
 Here we decompose the integral in the sum of a part with an integrable singularity and a part with a coordinate transformation which eliminates the algebraic part, leaving only an exponential (see paper). This should be numerically more stable. 
 We use the mpmath library for high precision quadrature (http://mpmath.org).
-We also plot the asynptotic expansion of the integral for tau << 1
+We also plot the asymptotic expansion of the integral for tau << 1.
 
 THIS VERSION ONLY PRINTS OUTPUTS TO A FILE, AVAILABLE FOR PLOTTING (*_do = data only).
 
@@ -13,8 +13,20 @@ Electron density (tuple, float, cm^-3)
 Temperature (tuple, float, K)
 eps_min, eps_max, n_eps (tuple [float, float, integer] - Dimensionless electron total energy (in units of m_e c^2 -> eps > 1), number of eps points for plots of mean free path l_mfp(eps)
 maximum degree for integral precision (integer)
-"temp" or "ne": Compute either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter)
+"temp" or "ne": Computes either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter)
 Name of the output data file (string)
+
+Output:
+
+Ascii file in the format:
+n_rows (int, number of points)
+ne or temp = <value1> (value of the parameter, i.e. "ne" if computing sigma_eff or "temp" if computing energy loss)
+eps(i), (sigma_eff OR ne^{-1}*de/dt, exact), (sigma_eff OR ne^{-1}*de/dt, as. exp)   (i=1 to n_rows)
+ne or temp = <value2> (value of the parameter, i.e. "ne" if computing sigma_eff or "temp" if computing energy loss)
+eps(i), (sigma_eff OR ne^{-1}*de/dt, exact), (sigma_eff OR ne^{-1}*de/dt, as. exp)   (i=1 to n_rows)
+....
+
+In total this file contains 1+(n_values+1)*n_rows rows, n_values being the number of fixed parameters for each case.
 
 """
 import math, sys, ast
