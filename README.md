@@ -16,13 +16,18 @@ List of functions:
 
 figs_1-2_do.py: Computes either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter), and outputs to an ascii file with (among others) three columns: (energy, exact value, symp. exp.), where "exact value" refers to the numerical quadrature evaluation of the exact expressions from Haug 1988.
 Input: An ascii file containing parameters.
-Output: If using "temp" as parameter: ASCII file, three columns, n_eps lines (eps, sigma_eff_exact, sigma_eff_asymp) for each input vaòlue of temperature. If using "ne" as parameter: ASCII file, two columns, n_eps lines (eps, de/dt) for each input value of target's electron density.
+Output: If using "temp" as parameter: ASCII file, three columns, n_eps lines (eps, sigma_eff_exact, sigma_eff_asymp) for each input value of temperature. If using "ne" as parameter: ASCII file, two columns, n_eps lines (eps, de/dt) for each input value of target's electron density.
 
 List of classes:
 
 haug88.py: Container of a series of functions computing electrons cross sections and energy losses.
 
-sigma_eff : Evaluates cross section using eq. (25) of Haug 1988. "quad" Numerical quadrature function from mpmath is used.
+Here the list of functions:
+sigma_eff : Evaluates cross section using eq. (25) of Haug 1988. "quad" Numerical quadrature function from mpmath is used. Input: eps_i, a list of energy values. Output: sigma_eff (list), mean free path (list).
 f1, f2: The integrands used in sigma_eff.
-
-sig_eff_as: Asymptotic expansion of eq. (25) of Haug 1988.
+sig_eff_as: Asymptotic expansion of eq. (25) of Haug 1988. Input: eps_i, a list of energy values. Output: sigma_eff (list).
+en_loss: Computes the r.h.s. of Haug (1988), eq. (15). Input: eps_i, a list of energy values. Output: energy loss (list).
+f1_en, f2_en: The integrands used in en_loss.
+theta_mstar: eq. 21a of Haug 1988.
+f_sintheta: eq 12 of Haug 1988.
+dedt: Asymptotic expansion of Haug (1988), eq. 15. Input: eps_i, a list of energy values. Output: energy loss (list).
