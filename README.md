@@ -12,23 +12,20 @@ REQUIREMENTS:
 Libraries: numpy, scipy.
 We make use of the mpmath library (https://mpmath.org/) for arbitrary precision mathematics, more specifically to compute Haug 1988 exact quadrature formulas for both quantities (cross section and energy loss). 
 
-List of functions:
-
-figs_1-2_do.py: Computes either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter), and outputs to an ascii file with (among others) three columns: (energy, exact value, symp. exp.), where "exact value" refers to the numerical quadrature evaluation of the exact expressions from Haug 1988.
-
-Input: An ascii file containing parameters.
+List of functions:<br>
+figs_1-2_do.py: Computes either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter), and outputs to an ascii file with (among others) three columns: (energy, exact value, symp. exp.), where "exact value" refers to the numerical quadrature evaluation of the exact expressions from Haug 1988.<br>
+Input: An ascii file containing parameters.<br>
 Output: If using "temp" as parameter: ASCII file, three columns, n_eps lines (eps, sigma_eff_exact, sigma_eff_asymp) for each input value of temperature. If using "ne" as parameter: ASCII file, two columns, n_eps lines (eps, de/dt) for each input value of target's electron density.
 
-List of classes:
+List of classes:<br>
 
-haug88.py: Container of a series of functions computing electrons cross sections and energy losses.
-
-Here the list of functions:
-sigma_eff : Evaluates cross section using eq. (25) of Haug 1988. "quad" Numerical quadrature function from mpmath is used. Input: eps_i, a list of energy values. Output: sigma_eff (list), mean free path (list).
-f1, f2: The integrands used in sigma_eff.
-sig_eff_as: Asymptotic expansion of eq. (25) of Haug 1988. Input: eps_i, a list of energy values. Output: sigma_eff (list).
-en_loss: Computes the r.h.s. of Haug (1988), eq. (15). Input: eps_i, a list of energy values. Output: energy loss (list).
-f1_en, f2_en: The integrands used in en_loss.
-theta_mstar: eq. 21a of Haug 1988.
-f_sintheta: eq 12 of Haug 1988.
+haug88.py: Container of a series of functions computing electrons cross sections and energy losses.<br>
+Here the list of functions:<br>
+sigma_eff : Evaluates cross section using eq. (25) of Haug 1988. "quad" Numerical quadrature function from mpmath is used. Input: eps_i, a list of energy values. Output: sigma_eff (list), mean free path (list).<br>
+f1, f2: The integrands used in sigma_eff.<br>
+sig_eff_as: Asymptotic expansion of eq. (25) of Haug 1988. Input: eps_i, a list of energy values. Output: sigma_eff (list).<br>
+en_loss: Computes the r.h.s. of Haug (1988), eq. (15). Input: eps_i, a list of energy values. Output: energy loss (list).<br>
+f1_en, f2_en: The integrands used in en_loss.<br>
+theta_mstar: eq. 21a of Haug 1988.<br>
+f_sintheta: eq 12 of Haug 1988.<br>
 dedt: Asymptotic expansion of Haug (1988), eq. 15. Input: eps_i, a list of energy values. Output: energy loss (list).
