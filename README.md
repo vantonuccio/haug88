@@ -15,6 +15,7 @@ We make use of the mpmath library (https://mpmath.org/) for arbitrary precision 
 List of functions:
 
 figs_1-2_do.py: Computes either sigma_eff (using "temp" as parameter) or (1/n_e)*de/dt (using "ne" as parameter), and outputs to an ascii file with (among others) three columns: (energy, exact value, symp. exp.), where "exact value" refers to the numerical quadrature evaluation of the exact expressions from Haug 1988.
+
 Input: An ascii file containing parameters.
 Output: If using "temp" as parameter: ASCII file, three columns, n_eps lines (eps, sigma_eff_exact, sigma_eff_asymp) for each input value of temperature. If using "ne" as parameter: ASCII file, two columns, n_eps lines (eps, de/dt) for each input value of target's electron density.
 
