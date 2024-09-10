@@ -1,7 +1,5 @@
 # haug88
-We make here available Python macros and auxiliary files connected to our paper on the calculation of Haug (1988) cross sections and electron loss rate.
-
-Python version >= 3.6 required.
+We make here available Python 3 (version >= 3.6 required) classes and auxiliary files connected to our paper on the calculation of Haug (1988) cross sections and electron loss rate.
 
 The "Asympototic expansion" pdf file describes with some detail both the asymptotic expansion and the numerical integration scheme adopted to evaluate the coros section ad the energy loss rate.
 
